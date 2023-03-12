@@ -5,6 +5,7 @@ const configHandler = require("./configHandler");
 const config = configHandler.getConfig();
 
 console.log("StackOverflow-Login started...");
+let daysVisited = config.daysVisitedStart;
 
 function login(){
     axios.get("https://stackoverflow.com/users/login")
@@ -25,7 +26,13 @@ function login(){
             );
         })
         .then(response => {
-            console.log(`Your login attempt gave the following result: ${response.status}`);
+            if(response.status === 200){
+                daysVisited++;
+                console.log(`Your login attempt succeedded! You've visited ${daysVisited} days in a row!`);
+            }
+            else{
+                console.log(`Your login attempt gave the following result: ${res.status}!`);
+            }
         })
         .catch(error => {
             console.log(`Your login attempt gave the following result: ${error}`);
