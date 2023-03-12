@@ -11,6 +11,6 @@ If git is not installed, download the zip file [here](https://github.com/arellak
 3. Install the dependencies:<br>
 $ `npm install`
 4. Change the name of `config.template.json` to `config.json`.
-5. Input your credentials into the new `config.json`.
+5. Input your credentials into the new `config.json`. Also add your current consecutive days you've visited. (e.g. you start the script at 1pm and you've already logged into stackoverflow that, you should enter the days you've visited -1. For example you visited 44 days that day. You should enter 43 days into the config because it will instantly try to login and update the days you've visited..)
 6. Start the script:<br>
 $ `npm run start`
